@@ -1,0 +1,154 @@
+JAVA
+
+1)Shuffle array
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class Shuffle {
+    public static void main(String[] args) 
+    {
+        int[] myArray = {1, 2, 3, 4, 5, 6, 7};
+        shuffle(myArray);
+        System.out.println(Arrays.toString(myArray));
+    }
+    private static void shuffle(int[] array) {
+        Random rand = new Random();
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1);
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+}
+
+
+
+2)Roman Number
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class RomanToInteger {
+    public static void main(String[] args) 
+    {
+        Map<Character, Integer> romanMap = new HashMap<>();
+        romanMap.put('I', 1);
+        romanMap.put('V', 5);
+        romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
+        romanMap.put('D', 500);
+        romanMap.put('M', 1000);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a Roman Number: ");
+        String romanNumeral = scanner.nextLine().toUpperCase();
+        int result = romanToInteger(romanNumeral, romanMap);
+        System.out.println("The integer of " + romanNumeral + " is: " + result);
+    }
+    private static int romanToInteger(String s, Map<Character, Integer> romanMap) {
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int current = romanMap.get(s.charAt(i));
+            int next = (i + 1 < s.length()) ? romanMap.get(s.charAt(i + 1)) : 0;
+            if (current < next) {
+                result += (next - current);
+                i++;
+            } else {
+                result += current;
+            }
+        }
+        return result;
+    }
+}
+
+
+3) pangram
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Pangram 
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = scanner.nextLine().toLowerCase();
+        boolean isPangram = checkPangram(sentence);
+        if (isPangram)
+        {
+            System.out.println("The entered sentence is a pangram.");
+        } 
+        else 
+        {
+            System.out.println("The entered sentence is not a pangram.");
+        }
+    }
+    private static boolean checkPangram(String sentence)
+    {
+        Set<Character> uniqueLetters = new HashSet<>();
+        for (char c : sentence.toCharArray())
+        {
+            if (Character.isLetter(c) && Character.isLowerCase(c))
+            {
+                uniqueLetters.add(c);
+            }
+        }
+        return uniqueLetters.size() == 26;
+    }
+}
+
+
+
+JAVA Script
+
+1)Reverse every word
+
+var string = "Reverse string";
+console.log("entered string :", string)
+var reversestring = reverseWord(string,"");
+console.log("reverse of string : ",reversestring);
+var output = reverseWord(reversestring," ");
+function reverseWord(string,separator)
+{
+  return string.split(separator).reverse().join(separator);
+}
+
+
+
+2)descending order
+
+var numbers = [1,8,6,4,3,8];
+console.log("entered numbers",numbers)
+numbers.sort(function(a, b)
+{
+    return b - a;
+});
+console.log(" descending order is:", numbers);
+
+
+
+
+
+
+
+HTML
+1) calculator
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 
